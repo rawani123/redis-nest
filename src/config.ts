@@ -1,6 +1,7 @@
+// src/config/configuration.ts
 export default () => ({
-    redis:{
-        host:'localhost',
-        port:6379
-    }
-});
+    redis: {
+      url: process.env.REDIS_URL,
+    },
+  });
+  

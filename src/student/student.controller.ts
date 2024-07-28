@@ -1,9 +1,10 @@
 import { Controller, Get, UseInterceptors } from "@nestjs/common";
 import { studentService } from "./student.service";
-import { CacheInterceptor } from "@nestjs/cache-manager";
+import { CacheInterceptor, CacheTTL } from "@nestjs/cache-manager";
 
 
 @UseInterceptors(CacheInterceptor)
+@CacheTTL(60)
 @Controller('student')
 export class StudentController {    
     constructor(private readonly studentService: studentService) {}

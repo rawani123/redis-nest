@@ -1,6 +1,7 @@
 
 import { Inject, Injectable } from '@nestjs/common';
 import { Cache } from 'cache-manager';
+import { availableMemory } from 'process';
 
 @Injectable()
 export class studentService{
@@ -13,9 +14,9 @@ export class studentService{
         //     return cacheData;
         // }
         console.log("Inside service")
-        const studentData = await this.retriveStudentFormData();
+        const availableData = await this.retriveStudentFormData();
         // await this.cacheManager.set('students',studentData,60*1000)
-        return studentData;
+        return availableData;
 
     }
 
@@ -23,7 +24,7 @@ export class studentService{
         return new Promise((resolve,reject)=>{
 
             setTimeout(()=>{
-                const studentData = [
+                const availableData = [
                     {
                         name: 'John Doe',
                         age: 25
@@ -37,7 +38,7 @@ export class studentService{
                         age: 26
                     }
                 ]
-                resolve(studentData);
+                resolve(availableData);
             },1000)
         })
     }
